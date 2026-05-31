@@ -5,12 +5,20 @@ import java.util.Scanner;
 public class main {                                                         //coloque no zoom 1
 
     public static void main(String[] args) {
-        
+
+        Random random = new Random();
         char[][] tabuleiroPlayer = new char[10][10];
-        char trevo     = '\u2663';
+        char[][] tabuleiroCPU = new char[10][10];
+ 
+
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 tabuleiroPlayer[i][j] = '~';
+            }
+        }
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                tabuleiroCPU[i][j] = '~';
             }
         }
         Scanner sc = new Scanner(System.in);

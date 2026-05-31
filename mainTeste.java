@@ -1,4 +1,5 @@
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class mainTeste {
@@ -208,16 +209,8 @@ public class mainTeste {
     }
 
     //___________________________________________________________________________________________________________________________________
-
-    public static void tabuleiroCPU() {
-        char[][] tabuCPU = new char[10][10];
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                tabuCPU[i][j] = '~';
-            }
-        }
-    }
     //___________________________________________________________________________________________________________________________________
+
 
         public static void escolhendoPORTAAVIOES(Scanner scanner, char[][] tabu) {
         String espaço = "                                                        ";
@@ -227,8 +220,6 @@ public class mainTeste {
         for (int i = 0; i < 7; i++) {
             System.out.println();
         }
-
-        System.out.println(espaço + "          ESTE É O SEU TABULEIRO");
         delay.delay(900);
 
         for (int N = 1; N < 3; N++) {
@@ -240,8 +231,8 @@ public class mainTeste {
             navio:
             do {
                 imprimir.imprimirtb(tabu);
-                System.out.println(espaço + "   Em qual casa deseja por o " + N + "º Navil ?");
-                System.out.print(espaço + " Escolha a posiçao referente ao eixo xy : ");
+                System.out.println(espaço + "   Em qual casa deseja por o " + N + "º Porta aviões ?");
+                System.out.print(espaço + "  Escolha a posiçao referente ao eixo xy : ");
                 String posiçao = "";
                 try {
                     posiçao = scanner.nextLine().toUpperCase();
@@ -322,8 +313,8 @@ public class mainTeste {
                 String opçoes = navegandoPeloMenu.opçoes(scanner);
 
                 if (opçoes.equals("Direita")) {
-                    if (conv + 2 < 10) {
-                        for (int i = 0; i < 3; i++) {
+                    if (conv + 3 < 10) {
+                        for (int i = 0; i < 4; i++) {
                             if (tabu[y][conv + i] == '═' || tabu[y][conv + i] == '■') {
                                 for (int j = 0; j < i; j++) {
                                     tabu[y][conv + j] = '~'; 
@@ -345,8 +336,8 @@ public class mainTeste {
                     break escolhaOnavil;
 
                 } else if (opçoes.equals("Esquerda")) {
-                    if (conv - 2 >= 0) {
-                        for (int i = 0; i < 3; i++) {
+                    if (conv - 3 >= 0) {
+                        for (int i = 0; i < 4; i++) {
                             if (tabu[y][conv - i] == '═' || tabu[y][conv - i] == '■') {
                                 for (int j = 0; j < i; j++) {
                                     tabu[y][conv - j] = '~'; 
@@ -368,8 +359,8 @@ public class mainTeste {
 
                     break escolhaOnavil;
                 } else if (opçoes.equals("Baixo")) {
-                    if (y + 2 < 10) {
-                        for (int i = 0; i < 3; i++) {
+                    if (y + 3 < 10) {
+                        for (int i = 0; i < 4; i++) {
                             if (tabu[y + i][conv] == '═' || tabu[y + i][conv] == '■') {
                                 for (int j = 0; j < i; j++) {
                                     tabu[y + j][conv] = '~'; 
@@ -389,8 +380,8 @@ public class mainTeste {
                     }
                     break escolhaOnavil;
                 } else if (opçoes.equals("Cima")) {
-                    if (y - 2 >= 0) {
-                        for (int i = 0; i < 3; i++) {
+                    if (y - 3 >= 0) {
+                        for (int i = 0; i < 4; i++) {
                             if (tabu[y - i][conv] == '═' || tabu[y - i][conv] == '■') {
                                 for (int j = 0; j < i; j++) {
                                     tabu[y - j][conv] = '~';
@@ -424,7 +415,96 @@ public class mainTeste {
     }
 
 
+//__________________________________________________________________________________________________________________________________
+//___________________________________________________________________________________________________________________________________
 
+    public static void tabuleiroCPU(char[][] tabuCPU, Random random) {
+        for (int COM = 0; COM < 2; COM++) {
+
+            navioCPU: do{
+                int posiçaoX = random.nextInt(10);
+                int posiçaoY = random.nextInt(10);
+                int direçao = random.nextInt(4) +1;
+
+                if(direçao == 1 ){ //direita
+                    if(posiçaoX + 2 < 10){
+                        for (int i = 0; i < 3; i++) {
+                            if(tabuCPU[posiçaoY][posiçaoX + i] == '═'){
+                                for (int j = 0; j < i; j++) {
+                                    tabuCPU[posiçaoY][posiçaoX + j] = '~';
+                                }
+                            continue navioCPU;
+                            }
+                            tabuCPU[posiçaoY][posiçaoX + i] = '═';
+                        }
+                    }else{
+                        continue navioCPU; // ultrapassa o limite
+                    }
+                    break navioCPU;
+                }
+//--------------------------------------------------------------------------
+                if(direçao == 2 ){ //esquerda
+                    if(posiçaoX - 2 < 10){
+                        for (int i = 0; i < 3; i++) {
+                            if(tabuCPU[posiçaoY][posiçaoX - i] == '═'){
+                                for (int j = 0; j < i; j++) {
+                                    tabuCPU[posiçaoY][posiçaoX - j] = '~';
+                                }
+                            continue navioCPU;
+                            }
+                            tabuCPU[posiçaoY][posiçaoX - i] = '═';
+                        }
+                    }else{
+                        continue navioCPU; // ultrapassa o limite
+                    }
+                    break navioCPU;
+                }
+
+//-------------------------------------------------------------------------------
+
+                if(direçao == 3 ){ //baixo
+                    if(posiçaoY + 2 < 10){
+                        for (int i = 0; i < 3; i++) {
+                            if(tabuCPU[posiçaoY + i][posiçaoX] == '═'){
+                                for (int j = 0; j < i; j++) {
+                                    tabuCPU[posiçaoY + j][posiçaoX] = '~';
+                                }
+                            continue navioCPU;
+                            }
+                            tabuCPU[posiçaoY + i][posiçaoX] = '═';
+                        }
+                    }else{
+                        continue navioCPU; // ultrapassa o limite
+                    }
+                    break navioCPU;
+                }
+
+//---------------------------------------------------------------------------------------
+
+                if(direçao == 1 ){ //direita
+                    if(posiçaoX - 2 < 10){
+                        for (int i = 0; i < 3; i++) {
+                            if(tabuCPU[posiçaoY][posiçaoX + i] == '═'){
+                                for (int j = 0; j < i; j++) {
+                                    tabuCPU[posiçaoY - j][posiçaoX] = '~';
+                                }
+                            continue navioCPU;
+                            }
+                            tabuCPU[posiçaoY - i][posiçaoX] = '═';
+                        }
+                    }else{
+                        continue navioCPU; // ultrapassa o limite
+                    }
+                    break navioCPU;
+                }
+
+            }while(true);
+
+                
+        }
+            
+        }
+    
 
 
 
