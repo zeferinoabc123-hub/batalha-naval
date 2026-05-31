@@ -1,4 +1,6 @@
 
+
+
 public class imprimir {
 
     public static void imprimirtb(char[][] tabela) {
@@ -22,6 +24,8 @@ public class imprimir {
 
     if (tabela[i][j] == '■') {
         System.out.print("\u001B[93m■\u001B[34m  ");
+    } else if(tabela[i][j] == '═'){
+        System.out.print("\u001B[93m═\u001B[34m  ");
     } else {
         System.out.print(tabela[i][j] + "  ");
     }

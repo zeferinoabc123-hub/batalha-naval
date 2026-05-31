@@ -2,12 +2,13 @@
 import java.util.Random;
 import java.util.Scanner;
 
-
-
 public class main {                                                         //coloque no zoom 1
+
     public static void main(String[] args) {
+        
         char[][] tabuleiroPlayer = new char[10][10];
-                for (int i = 0; i < 10; i++) {
+        char trevo     = '\u2663';
+        for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 tabuleiroPlayer[i][j] = '~';
             }
@@ -51,18 +52,12 @@ public class main {                                                         //co
 
         sc.nextLine();
         limparTerminal.limparTerminal();
-  
-            
-        jogar.escolhendoNavil(sc, tabuleiroPlayer);
+
+        mainTeste.escolhendoNavil(sc, tabuleiroPlayer);
         delay.delay(1200);
-        jogar.escolhendoPortaAviao(sc, tabuleiroPlayer);
-        
+        mainTeste.escolhendoPORTAAVIOES(sc, tabuleiroPlayer);
+
         imprimir.imprimirtb(tabuleiroPlayer);
 
-        
-
-
-        
-        
     }
 }

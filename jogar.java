@@ -233,7 +233,7 @@ public class jogar {
                 System.out.println();
             }
 
-            System.out.println(espaço + "   Em qual casa deseja por o Porta aviões ?");
+            System.out.println(espaço + "   Em qual casa deseja por o "+N+"º  Porta aviões ?");
             System.out.print(espaço + "Escolha a posiçao referente ao eixo x : ");
             //----------------
             String posiçao = scanner.nextLine().toUpperCase();
@@ -284,7 +284,7 @@ public class jogar {
                     }
 
                 } else {
-                    System.out.println("Navio ultrapassa o limite do tabuleiro!");
+                    System.out.println("        \001B[38;5;202mO NAVIO ULTRAPASSSA O LIMITE DO TABULEIRO\u001B[0m");
                     delay.delay(1000);
                     limparTerminal.limparTerminal();
                     continue;
@@ -297,7 +297,7 @@ public class jogar {
                     }
 
                 } else {
-                    System.out.println("Navio ultrapassa o limite do tabuleiro!");
+                    System.out.println("        \001B[38;5;202mO NAVIO ULTRAPASSSA O LIMITE DO TABULEIRO\u001B[0m");
                     delay.delay(1000);
                     limparTerminal.limparTerminal();
                     continue;
@@ -309,7 +309,7 @@ public class jogar {
                     }
 
                 } else {
-                    System.out.println("Navio ultrapassa o limite do tabuleiro!");
+                    System.out.println("        \001B[38;5;202mO NAVIO ULTRAPASSSA O LIMITE DO TABULEIRO\u001B[0m");
                     delay.delay(1000);
                     limparTerminal.limparTerminal();
                     continue;
@@ -321,7 +321,7 @@ public class jogar {
                     }
 
                 } else {
-                    System.out.println("Navio ultrapassa o limite do tabuleiro!");
+                    System.out.println("        \001B[38;5;202mO NAVIO ULTRAPASSSA O LIMITE DO TABULEIRO\u001B[0m");
                     delay.delay(1000);
                     limparTerminal.limparTerminal();
                     continue;
