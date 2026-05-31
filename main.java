@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class main {                                                         //coloque no zoom 1
 
+
+    // boiola
     public static void main(String[] args) {
 
         Random random = new Random();
