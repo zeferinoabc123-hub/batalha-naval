@@ -442,7 +442,7 @@ public class mainTeste {
                 }
 //--------------------------------------------------------------------------
                 if (direçao == 2) { //esquerda
-                    if (posiçaoX - 2 < 10) {
+                    if (posiçaoX - 2 >= 0) {
                         for (int i = 0; i < 3; i++) {
                             if (tabuCPU[posiçaoY][posiçaoX - i] == '═') {
                                 for (int j = 0; j < i; j++) {
@@ -478,7 +478,7 @@ public class mainTeste {
 
 //---------------------------------------------------------------------------------------
                 if (direçao == 1) { //cima
-                    if (posiçaoX - 2 < 10) {
+                    if (posiçaoX - 2 >= 0) {
                         for (int i = 0; i < 3; i++) {
                             if (tabuCPU[posiçaoY][posiçaoX + i] == '═') {
                                 for (int j = 0; j < i; j++) {
@@ -511,8 +511,9 @@ public class mainTeste {
         int contador = 0;
         for (int COM = 0; COM < 2; COM++) {
 
-            navioCPU:
+            portaaviaoCPU:
             do {
+                contador++;
                 int posiçaoX = random.nextInt(10);
                 int posiçaoY = random.nextInt(10);
                 int direçao = random.nextInt(4) + 1;
@@ -525,32 +526,32 @@ public class mainTeste {
                                 for (int j = 0; j < i; j++) {
                                     tabuCPU[posiçaoY][posiçaoX + j] = '~';
                                 }
-                                continue navioCPU;
+                                continue portaaviaoCPU;
                             }
                             tabuCPU[posiçaoY][posiçaoX + i] = '■';
                         }
                     } else {
-                        continue navioCPU; // ultrapassa o limite
+                        continue portaaviaoCPU; // ultrapassa o limite
                     }
-                    break navioCPU;
+                    break portaaviaoCPU;
                 }
 //--------------------------------------------------------------------------
                 if (direçao == 2) { //esquerda
-                    if (posiçaoX - 4 < 10) {
+                    if (posiçaoX - 4 >= 0) {
                         for (int i = 0; i < 5; i++) {
                             if (tabuCPU[posiçaoY][posiçaoX - i] == '■' || tabuCPU[posiçaoY][posiçaoX - i] == '═') {
                                 System.out.println("teste2");
                                 for (int j = 0; j < i; j++) {
                                     tabuCPU[posiçaoY][posiçaoX - j] = '~';
                                 }
-                                continue navioCPU;
+                                continue portaaviaoCPU;
                             }
                             tabuCPU[posiçaoY][posiçaoX - i] = '■';
                         }
                     } else {
-                        continue navioCPU; // ultrapassa o limite
+                        continue portaaviaoCPU; // ultrapassa o limite
                     }
-                    break navioCPU;
+                    break portaaviaoCPU;
                 }
 
 //-------------------------------------------------------------------------------
@@ -562,35 +563,34 @@ public class mainTeste {
                                 for (int j = 0; j < i; j++) {
                                     tabuCPU[posiçaoY + j][posiçaoX] = '~';
                                 }
-                                continue navioCPU;
+                                continue portaaviaoCPU;
                             }
                             tabuCPU[posiçaoY + i][posiçaoX] = '■';
                         }
                     } else {
-                        continue navioCPU; // ultrapassa o limite
+                        continue portaaviaoCPU; // ultrapassa o limite
                     }
-                    break navioCPU;
+                    break portaaviaoCPU;
                 }
 
 //---------------------------------------------------------------------------------------
-                if (direçao == 1) { //cima
-                    if (posiçaoY - 4 < 10) {
+                if (direçao == 4) { //cima
+                    if (posiçaoY - 4 >= 0) {
                         for (int i = 0; i < 5; i++) {
                             if (tabuCPU[posiçaoY - i][posiçaoX] == '■' || tabuCPU[posiçaoY - i][posiçaoX] == '═') {
                                 System.out.println("teste4");
                                 for (int j = 0; j < i; j++) {
                                     tabuCPU[posiçaoY - j][posiçaoX] = '~';
                                 }
-                                continue navioCPU;
+                                continue portaaviaoCPU;
                             }
                             tabuCPU[posiçaoY - i][posiçaoX] = '■';
                         }
                     } else {
-                        continue navioCPU; // ultrapassa o limite
+                        continue portaaviaoCPU; // ultrapassa o limite
                     }
-                    break navioCPU;
+                    break portaaviaoCPU;
                 }
-                contador++;
                 if (contador == 2) {
                     break;
                 }
@@ -598,6 +598,7 @@ public class mainTeste {
             } while (true);
 
         }
+  
 
 
 }
