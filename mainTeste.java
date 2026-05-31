@@ -210,9 +210,7 @@ public class mainTeste {
 
     //___________________________________________________________________________________________________________________________________
     //___________________________________________________________________________________________________________________________________
-
-
-        public static void escolhendoPORTAAVIOES(Scanner scanner, char[][] tabu) {
+    public static void escolhendoPORTAAVIOES(Scanner scanner, char[][] tabu) {
         String espaço = "                                                        ";
         char x = 'p';
         int y = 11;
@@ -317,7 +315,7 @@ public class mainTeste {
                         for (int i = 0; i < 4; i++) {
                             if (tabu[y][conv + i] == '═' || tabu[y][conv + i] == '■') {
                                 for (int j = 0; j < i; j++) {
-                                    tabu[y][conv + j] = '~'; 
+                                    tabu[y][conv + j] = '~';
                                 }
                                 System.out.println(espaço + "      \u001B[38;5;202mNAO PODE OBSTRUIR OUTRA EMBARCAÇAO");
                                 delay.delay(1000);
@@ -340,7 +338,7 @@ public class mainTeste {
                         for (int i = 0; i < 4; i++) {
                             if (tabu[y][conv - i] == '═' || tabu[y][conv - i] == '■') {
                                 for (int j = 0; j < i; j++) {
-                                    tabu[y][conv - j] = '~'; 
+                                    tabu[y][conv - j] = '~';
                                 }
                                 System.out.println(espaço + "      \u001B[38;5;202mNAO PODE OBSTRUIR OUTRA EMBARCAÇAO");
                                 delay.delay(1000);
@@ -363,7 +361,7 @@ public class mainTeste {
                         for (int i = 0; i < 4; i++) {
                             if (tabu[y + i][conv] == '═' || tabu[y + i][conv] == '■') {
                                 for (int j = 0; j < i; j++) {
-                                    tabu[y + j][conv] = '~'; 
+                                    tabu[y + j][conv] = '~';
                                 }
                                 System.out.println(espaço + "      \u001B[38;5;202mNAO PODE OBSTRUIR OUTRA EMBARCAÇAO");
                                 delay.delay(1000);
@@ -373,7 +371,7 @@ public class mainTeste {
                             tabu[y + i][conv] = '■';
                         }
                     } else {
-                       System.out.println(espaço + "\u001B[38;5;202mO O PORTA AVIÕES ULTRAPASSA O LIMITE DO TABULEIRO\u001B[0m");
+                        System.out.println(espaço + "\u001B[38;5;202mO O PORTA AVIÕES ULTRAPASSA O LIMITE DO TABULEIRO\u001B[0m");
                         delay.delay(1000);
                         limparTerminal.limparTerminal();
                         continue escolhaOnavil;
@@ -414,108 +412,195 @@ public class mainTeste {
         delay.delay(1500);
     }
 
-
 //__________________________________________________________________________________________________________________________________
 //___________________________________________________________________________________________________________________________________
-
-    public static void tabuleiroCPU(char[][] tabuCPU, Random random) {
+    public static void navioCPU(char[][] tabuCPU, Random random) {
+        int contador = 0;
         for (int COM = 0; COM < 2; COM++) {
 
-            navioCPU: do{
+            navioCPU:
+            do {
                 int posiçaoX = random.nextInt(10);
                 int posiçaoY = random.nextInt(10);
-                int direçao = random.nextInt(4) +1;
+                int direçao = random.nextInt(4) + 1;
 
-                if(direçao == 1 ){ //direita
-                    if(posiçaoX + 2 < 10){
+                if (direçao == 1) { //direita
+                    if (posiçaoX + 2 < 10) {
                         for (int i = 0; i < 3; i++) {
-                            if(tabuCPU[posiçaoY][posiçaoX + i] == '═'){
+                            if (tabuCPU[posiçaoY][posiçaoX + i] == '═') {
                                 for (int j = 0; j < i; j++) {
                                     tabuCPU[posiçaoY][posiçaoX + j] = '~';
                                 }
-                            continue navioCPU;
+                                continue navioCPU;
                             }
                             tabuCPU[posiçaoY][posiçaoX + i] = '═';
                         }
-                    }else{
+                    } else {
                         continue navioCPU; // ultrapassa o limite
                     }
                     break navioCPU;
                 }
 //--------------------------------------------------------------------------
-                if(direçao == 2 ){ //esquerda
-                    if(posiçaoX - 2 < 10){
+                if (direçao == 2) { //esquerda
+                    if (posiçaoX - 2 < 10) {
                         for (int i = 0; i < 3; i++) {
-                            if(tabuCPU[posiçaoY][posiçaoX - i] == '═'){
+                            if (tabuCPU[posiçaoY][posiçaoX - i] == '═') {
                                 for (int j = 0; j < i; j++) {
                                     tabuCPU[posiçaoY][posiçaoX - j] = '~';
                                 }
-                            continue navioCPU;
+                                continue navioCPU;
                             }
                             tabuCPU[posiçaoY][posiçaoX - i] = '═';
                         }
-                    }else{
+                    } else {
                         continue navioCPU; // ultrapassa o limite
                     }
                     break navioCPU;
                 }
 
 //-------------------------------------------------------------------------------
-
-                if(direçao == 3 ){ //baixo
-                    if(posiçaoY + 2 < 10){
+                if (direçao == 3) { //baixo
+                    if (posiçaoY + 2 < 10) {
                         for (int i = 0; i < 3; i++) {
-                            if(tabuCPU[posiçaoY + i][posiçaoX] == '═'){
+                            if (tabuCPU[posiçaoY + i][posiçaoX] == '═') {
                                 for (int j = 0; j < i; j++) {
                                     tabuCPU[posiçaoY + j][posiçaoX] = '~';
                                 }
-                            continue navioCPU;
+                                continue navioCPU;
                             }
                             tabuCPU[posiçaoY + i][posiçaoX] = '═';
                         }
-                    }else{
+                    } else {
                         continue navioCPU; // ultrapassa o limite
                     }
                     break navioCPU;
                 }
 
 //---------------------------------------------------------------------------------------
-
-                if(direçao == 1 ){ //direita
-                    if(posiçaoX - 2 < 10){
+                if (direçao == 1) { //cima
+                    if (posiçaoX - 2 < 10) {
                         for (int i = 0; i < 3; i++) {
-                            if(tabuCPU[posiçaoY][posiçaoX + i] == '═'){
+                            if (tabuCPU[posiçaoY][posiçaoX + i] == '═') {
                                 for (int j = 0; j < i; j++) {
                                     tabuCPU[posiçaoY - j][posiçaoX] = '~';
                                 }
-                            continue navioCPU;
+                                continue navioCPU;
                             }
                             tabuCPU[posiçaoY - i][posiçaoX] = '═';
                         }
-                    }else{
+                    } else {
+                        continue navioCPU; // ultrapassa o limite
+                    }
+                    break navioCPU;
+                }
+                contador++;
+                if (contador == 2) {
+                    break;
+                }
+
+            } while (true);
+
+        }
+    }
+
+
+//__________________________________________________________________PORTAAVIAO DA CPU
+
+
+    public static void portaAvioesCPU(char[][] tabuCPU, Random random) {
+        int contador = 0;
+        for (int COM = 0; COM < 2; COM++) {
+
+            navioCPU:
+            do {
+                int posiçaoX = random.nextInt(10);
+                int posiçaoY = random.nextInt(10);
+                int direçao = random.nextInt(4) + 1;
+
+                if (direçao == 1) { //direita
+                    if (posiçaoX + 4 < 10) {
+                        for (int i = 0; i < 5; i++) {
+                            if (tabuCPU[posiçaoY][posiçaoX + i] == '■' || tabuCPU[posiçaoY][posiçaoX + i] == '═' ) {
+                                System.out.println("teste1");
+                                for (int j = 0; j < i; j++) {
+                                    tabuCPU[posiçaoY][posiçaoX + j] = '~';
+                                }
+                                continue navioCPU;
+                            }
+                            tabuCPU[posiçaoY][posiçaoX + i] = '■';
+                        }
+                    } else {
+                        continue navioCPU; // ultrapassa o limite
+                    }
+                    break navioCPU;
+                }
+//--------------------------------------------------------------------------
+                if (direçao == 2) { //esquerda
+                    if (posiçaoX - 4 < 10) {
+                        for (int i = 0; i < 5; i++) {
+                            if (tabuCPU[posiçaoY][posiçaoX - i] == '■' || tabuCPU[posiçaoY][posiçaoX - i] == '═') {
+                                System.out.println("teste2");
+                                for (int j = 0; j < i; j++) {
+                                    tabuCPU[posiçaoY][posiçaoX - j] = '~';
+                                }
+                                continue navioCPU;
+                            }
+                            tabuCPU[posiçaoY][posiçaoX - i] = '■';
+                        }
+                    } else {
                         continue navioCPU; // ultrapassa o limite
                     }
                     break navioCPU;
                 }
 
-            }while(true);
+//-------------------------------------------------------------------------------
+                if (direçao == 3) { //baixo
+                    if (posiçaoY + 4 < 10) {
+                        for (int i = 0; i < 5; i++) {
+                            if (tabuCPU[posiçaoY + i][posiçaoX] == '■' || tabuCPU[posiçaoY + i][posiçaoX] == '═') {
+                                System.out.println("teste3");
+                                for (int j = 0; j < i; j++) {
+                                    tabuCPU[posiçaoY + j][posiçaoX] = '~';
+                                }
+                                continue navioCPU;
+                            }
+                            tabuCPU[posiçaoY + i][posiçaoX] = '■';
+                        }
+                    } else {
+                        continue navioCPU; // ultrapassa o limite
+                    }
+                    break navioCPU;
+                }
 
-                
+//---------------------------------------------------------------------------------------
+                if (direçao == 1) { //cima
+                    if (posiçaoY - 4 < 10) {
+                        for (int i = 0; i < 5; i++) {
+                            if (tabuCPU[posiçaoY - i][posiçaoX] == '■' || tabuCPU[posiçaoY - i][posiçaoX] == '═') {
+                                System.out.println("teste4");
+                                for (int j = 0; j < i; j++) {
+                                    tabuCPU[posiçaoY - j][posiçaoX] = '~';
+                                }
+                                continue navioCPU;
+                            }
+                            tabuCPU[posiçaoY - i][posiçaoX] = '■';
+                        }
+                    } else {
+                        continue navioCPU; // ultrapassa o limite
+                    }
+                    break navioCPU;
+                }
+                contador++;
+                if (contador == 2) {
+                    break;
+                }
+
+            } while (true);
+
         }
-            
-        }
-    
 
 
-
-
-
-
-
-
-
-
-
+}
 
 
 

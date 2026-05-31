@@ -9,8 +9,8 @@ public class main {                                                         //co
         Random random = new Random();
         char[][] tabuleiroPlayer = new char[10][10];
         char[][] tabuleiroCPU = new char[10][10];
- 
-
+        
+        
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 tabuleiroPlayer[i][j] = '~';
@@ -21,6 +21,11 @@ public class main {                                                         //co
                 tabuleiroCPU[i][j] = '~';
             }
         }
+
+
+        mainTeste.navioCPU(tabuleiroCPU, random);
+        mainTeste.portaAvioesCPU(tabuleiroCPU, random);
+        imprimir.imprimirtbCPU(tabuleiroCPU);
         Scanner sc = new Scanner(System.in);
         Random CPU = new Random();
         sc.nextLine();
