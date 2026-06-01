@@ -27,7 +27,7 @@ public class main {                                                         //co
 
         mainTeste.navioCPU(tabuleiroCPU, random);
         mainTeste.portaAvioesCPU(tabuleiroCPU, random);
-        imprimir.imprimirtbCPU(tabuleiroCPU);
+        imprimir.imprimirtb(tabuleiroCPU);
         Scanner sc = new Scanner(System.in);
         Random CPU = new Random();
         sc.nextLine();
@@ -73,6 +73,12 @@ public class main {                                                         //co
         mainTeste.escolhendoPORTAAVIOES(sc, tabuleiroPlayer);
 
         imprimir.imprimirtb(tabuleiroPlayer);
+
+        imprimir.imprimirtb(tabuleiroPlayer);
+
+        delay.delay(1500);
+        limparTerminal.limparTerminal();
+        batalha.batalhaPrincipal(sc, tabuleiroPlayer, tabuleiroCPU, CPU);
 
     }
 }

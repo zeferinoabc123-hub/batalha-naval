@@ -2,7 +2,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class mainTeste {
+public class mainTeste {//
 
     public static void escolhendoNavil(Scanner scanner, char[][] tabu) {
         String espaço = "                                                        ";
