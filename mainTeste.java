@@ -218,11 +218,10 @@ public class mainTeste {//
         for (int i = 0; i < 7; i++) {
             System.out.println();
         }
-        delay.delay(900);
+
 
         for (int N = 1; N < 3; N++) {
             limparTerminal.limparTerminal();
-            delay.delay(800);
             imprimir.imprimirtb(tabu);
             limparTerminal.limparTerminal();
 
@@ -477,10 +476,10 @@ public class mainTeste {//
                 }
 
 //---------------------------------------------------------------------------------------
-                if (direçao == 1) { //cima
-                    if (posiçaoX - 2 >= 0) {
+                if (direçao == 4) { //cima
+                    if (posiçaoY - 2 >= 0) {
                         for (int i = 0; i < 3; i++) {
-                            if (tabuCPU[posiçaoY][posiçaoX + i] == '═') {
+                            if (tabuCPU[posiçaoY - i][posiçaoX] == '═') {
                                 for (int j = 0; j < i; j++) {
                                     tabuCPU[posiçaoY - j][posiçaoX] = '~';
                                 }
@@ -489,7 +488,7 @@ public class mainTeste {//
                             tabuCPU[posiçaoY - i][posiçaoX] = '═';
                         }
                     } else {
-                        continue navioCPU; // ultrapassa o limite
+                        continue navioCPU; 
                     }
                     break navioCPU;
                 }

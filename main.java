@@ -72,9 +72,8 @@ public class main {                                                         //co
         delay.delay(1200);
         mainTeste.escolhendoPORTAAVIOES(sc, tabuleiroPlayer);
 
-        imprimir.imprimirtb(tabuleiroPlayer);
 
-        imprimir.imprimirtb(tabuleiroPlayer);
+
 
         delay.delay(1500);
         limparTerminal.limparTerminal();

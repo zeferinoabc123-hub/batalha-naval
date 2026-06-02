@@ -27,7 +27,7 @@ public class navegandoPeloMenu {
             for (int i = 0; i < opcoes.length; i++) {
                 
                 if (i == escolha) {
-                    System.out.println(espaço +"\u001B[91m   ➜\u001B[0m " + opcoes[i]);
+                    System.out.println(espaço +"\u001B[91m   >\u001B[0m " + opcoes[i]);
                 } else {
 
                     System.out.println(espaço +"     " + opcoes[i]);
